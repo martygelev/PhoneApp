@@ -1,0 +1,11 @@
+<div>
+  <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+    <div fxFlex="20%" class="card-picture" *ngFor="let phone of phones">
+      <app-phone-view (showPhone)="showPhone($event)" [phone]="phone"></app-phone-view>
+    </div>
+  </div>
+
+  <div *ngIf="currentPhone">
+    <app-phone-details (clickOutside)="hidePhone()" (hidePhone)="hidePhone()" [phone]="currentPhone"></app-phone-details>
+  </div>
+</div>

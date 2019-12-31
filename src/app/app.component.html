@@ -1,0 +1,29 @@
+<div class="logo" fxLayoutGap="15px">
+  <i class="material-icons">phonelink_ring</i>
+  <span class="logo-txt">&lt;ng-phones /&gt;</span>
+</div>
+<div fxLayout="row wrap" fxLayoutGap="15px">
+  <mat-form-field fxFlex="20%">
+    <mat-select (selectionChange)="sortByType()" [(ngModel)]="order" placeholder="Select Order">
+      <mat-option value="asc">Ascending</mat-option>
+      <mat-option value="desc">Descending</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="20%">
+    <mat-select (selectionChange)="sortByType()" [(ngModel)]="byType" placeholder="Select Type">
+      <mat-option value="brand">Brand</mat-option>
+      <mat-option value="price">Price</mat-option>
+      <mat-option value="model">Model</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlex="40%">
+    <input matInput placeholder="Search" (input)="filterBySearch()" [(ngModel)]="search">
+  </mat-form-field>
+
+</div>
+
+<button mat-raised-button (click)="clearFilters()">Clear filters</button>
+
+<app-phone-list [phones]="filteredPhones"></app-phone-list>
